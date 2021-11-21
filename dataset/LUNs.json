@@ -1,0 +1,105 @@
+{
+	"name": "LUNs",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "inputblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "LUNs.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Array",
+				"type": "String"
+			},
+			{
+				"name": "LUN",
+				"type": "String"
+			},
+			{
+				"name": "LUNType",
+				"type": "String"
+			},
+			{
+				"name": "ServiceLevel",
+				"type": "String"
+			},
+			{
+				"name": "LUNCapacityGB",
+				"type": "String"
+			},
+			{
+				"name": "LUNUsedGB",
+				"type": "String"
+			},
+			{
+				"name": "Purpose",
+				"type": "String"
+			},
+			{
+				"name": "Pool",
+				"type": "String"
+			},
+			{
+				"name": "PoolType",
+				"type": "String"
+			},
+			{
+				"name": "PolicyName",
+				"type": "String"
+			},
+			{
+				"name": "StorageGroup",
+				"type": "String"
+			},
+			{
+				"name": "IsMapped",
+				"type": "String"
+			},
+			{
+				"name": "IsMasked",
+				"type": "String"
+			},
+			{
+				"name": "IsUsed",
+				"type": "String"
+			},
+			{
+				"name": "IsMetaHead",
+				"type": "String"
+			},
+			{
+				"name": "IsThinlyProvisioned",
+				"type": "String"
+			},
+			{
+				"name": "IsPoolConsumer",
+				"type": "String"
+			},
+			{
+				"name": "IsPoolContributor",
+				"type": "String"
+			},
+			{
+				"name": "Availability",
+				"type": "String"
+			},
+			{
+				"name": "UUID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

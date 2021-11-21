@@ -1,0 +1,77 @@
+{
+	"name": "HypervisorCluster",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "inputblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "HypervisorClusters.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ClusterName",
+				"type": "String"
+			},
+			{
+				"name": "ClusterType",
+				"type": "String"
+			},
+			{
+				"name": "TotalCPUGHz",
+				"type": "String"
+			},
+			{
+				"name": "TotalMemoryGB",
+				"type": "String"
+			},
+			{
+				"name": "Hypervisors",
+				"type": "String"
+			},
+			{
+				"name": "HypervisorsInAlert",
+				"type": "String"
+			},
+			{
+				"name": "VMs",
+				"type": "String"
+			},
+			{
+				"name": "HostDevices",
+				"type": "String"
+			},
+			{
+				"name": "TotalHostDeviceCapacity",
+				"type": "String"
+			},
+			{
+				"name": "# Host Devices Shared by all",
+				"type": "String"
+			},
+			{
+				"name": "Read Throughput (IOPS)",
+				"type": "String"
+			},
+			{
+				"name": "Write Throughput (IOPS)",
+				"type": "String"
+			},
+			{
+				"name": "TotalThroughputIOPS",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

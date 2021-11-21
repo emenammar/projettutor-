@@ -1,0 +1,9 @@
+{
+	"name": "tutoredatafactory",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c918239d-40a5-4c86-b67e-1cdd86d06d17",
+		"tenantId": "dbd6664d-4eb9-46eb-99d8-5c43ba153c61"
+	}
+}

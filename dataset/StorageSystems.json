@@ -1,0 +1,61 @@
+{
+	"name": "StorageSystems",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "inputblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "StorageSystems.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "StorageSystemType",
+				"type": "String"
+			},
+			{
+				"name": "SerialNumber",
+				"type": "String"
+			},
+			{
+				"name": "StorageSystemAlias",
+				"type": "String"
+			},
+			{
+				"name": "Model",
+				"type": "String"
+			},
+			{
+				"name": "Vendor",
+				"type": "String"
+			},
+			{
+				"name": "Firmware",
+				"type": "String"
+			},
+			{
+				"name": "TotalRawCapacityTB",
+				"type": "String"
+			},
+			{
+				"name": "LastCollectionTime",
+				"type": "String"
+			},
+			{
+				"name": "Totaltimesincelastcollection",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

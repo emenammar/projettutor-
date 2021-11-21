@@ -1,0 +1,145 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "LUNs",
+						"type": "DatasetReference"
+					},
+					"name": "LUNs"
+				},
+				{
+					"dataset": {
+						"referenceName": "HypervisorCluster",
+						"type": "DatasetReference"
+					},
+					"name": "HypervisorCluster"
+				},
+				{
+					"dataset": {
+						"referenceName": "Hypervisor",
+						"type": "DatasetReference"
+					},
+					"name": "Hypervisor"
+				},
+				{
+					"dataset": {
+						"referenceName": "StorageSystems",
+						"type": "DatasetReference"
+					},
+					"name": "StorageSystems"
+				},
+				{
+					"dataset": {
+						"referenceName": "VirtualMachines",
+						"type": "DatasetReference"
+					},
+					"name": "VirtualMachines"
+				},
+				{
+					"dataset": {
+						"referenceName": "VirtualVolumes",
+						"type": "DatasetReference"
+					},
+					"name": "VirtualVolumes"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "outputLUNs",
+						"type": "DatasetReference"
+					},
+					"name": "OUTPUT"
+				},
+				{
+					"dataset": {
+						"referenceName": "outputHypervisorCluster",
+						"type": "DatasetReference"
+					},
+					"name": "outputHyperCluster"
+				},
+				{
+					"dataset": {
+						"referenceName": "outputHypervisor",
+						"type": "DatasetReference"
+					},
+					"name": "outputHyper"
+				},
+				{
+					"dataset": {
+						"referenceName": "outputStorageSystems",
+						"type": "DatasetReference"
+					},
+					"name": "outputStorageSystems"
+				},
+				{
+					"dataset": {
+						"referenceName": "outputVirtualMachines",
+						"type": "DatasetReference"
+					},
+					"name": "outputVirtualMachines"
+				},
+				{
+					"dataset": {
+						"referenceName": "outputVirtualVolumes",
+						"type": "DatasetReference"
+					},
+					"name": "outputVirtualVolumes"
+				},
+				{
+					"dataset": {
+						"referenceName": "outputHypervisor",
+						"type": "DatasetReference"
+					},
+					"name": "outputHyperFiltrer"
+				},
+				{
+					"dataset": {
+						"referenceName": "outputViutualMachinesCount",
+						"type": "DatasetReference"
+					},
+					"name": "outputVirtualMachineCount"
+				},
+				{
+					"dataset": {
+						"referenceName": "outputStorageSystems",
+						"type": "DatasetReference"
+					},
+					"name": "StorageSysRawCapacity100"
+				}
+			],
+			"transformations": [
+				{
+					"name": "LUNs1"
+				},
+				{
+					"name": "LUNs1clean",
+					"description": "Généré automatiquement par les actions d'aperçu de données"
+				},
+				{
+					"name": "transformationno1"
+				},
+				{
+					"name": "Filtrer1"
+				},
+				{
+					"name": "countbydomain"
+				},
+				{
+					"name": "percentofstorage"
+				},
+				{
+					"name": "StorsysRawCapacity"
+				},
+				{
+					"name": "VirtualVolumeslunMonitored"
+				}
+			],
+			"script": "source(output(\n\t\tArray as string,\n\t\tLUN as string,\n\t\tLUNType as string,\n\t\tServiceLevel as string,\n\t\tLUNCapacityGB as integer,\n\t\tLUNUsedGB as integer,\n\t\tPurpose as string,\n\t\tPool as string,\n\t\tPoolType as string,\n\t\tPolicyName as string,\n\t\tStorageGroup as string,\n\t\tIsMapped as string,\n\t\tIsMasked as string,\n\t\tIsUsed as string,\n\t\tIsMetaHead as string,\n\t\tIsThinlyProvisioned as string,\n\t\tIsPoolConsumer as string,\n\t\tIsPoolContributor as string,\n\t\tAvailability as string,\n\t\tUUID as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tignoreNoFilesFound: false) ~> LUNs\nsource(output(\n\t\tClusterName as string,\n\t\tClusterType as string,\n\t\tTotalCPUGHz as string,\n\t\tTotalMemoryGB as string,\n\t\tHypervisors as integer,\n\t\tHypervisorsInAlert as integer,\n\t\tVMs as string,\n\t\tHostDevices as string,\n\t\tTotalHostDeviceCapacity as string,\n\t\t{# Host Devices Shared by all} as string,\n\t\t{Read Throughput (IOPS)} as string,\n\t\t{Write Throughput (IOPS)} as string,\n\t\tTotalThroughputIOPS as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tignoreNoFilesFound: false) ~> HypervisorCluster\nsource(output(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tignoreNoFilesFound: false) ~> Hypervisor\nsource(output(\n\t\tStorageSystemType as string,\n\t\tSerialNumber as string,\n\t\tStorageSystemAlias as string,\n\t\tModel as string,\n\t\tVendor as string,\n\t\tFirmware as string,\n\t\tTotalRawCapacityTB as integer,\n\t\tLastCollectionTime as string,\n\t\tTotaltimesincelastcollection as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> StorageSystems\nsource(output(\n\t\tVirtualMachine as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> VirtualMachines\nsource(output(\n\t\tSerialNumber as string,\n\t\tVirtualVolume as string,\n\t\tRAIDType as string,\n\t\tLocality as string,\n\t\tCapacity as string,\n\t\tUsableCapacity as string,\n\t\tUsedCapacity as string,\n\t\tIsUsed as string,\n\t\tIsThinlyProvisioned as string,\n\t\t{Virtual Pool} as string,\n\t\t{Connected To} as string,\n\t\tArray as string,\n\t\tLUN as string,\n\t\tLUNServiceLevel as string,\n\t\tLUNMonitored as integer\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> VirtualVolumes\nLUNs select(skipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> LUNs1\nLUNs1 select(mapColumn(\n\t\teach(match(name!='UUID'&&name!='Availability'&&name!='IsPoolContributor'&&name!='IsPoolConsumer'&&name!='IsThinlyProvisioned'&&name!='IsMetaHead'&&name!='IsMasked'&&name!='IsMapped'))\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> LUNs1clean\nHypervisorCluster derive({percent  Aler Cluster %} = 100*(HypervisorsInAlert/Hypervisors)) ~> transformationno1\nHypervisor filter(Domain==\"test.local\") ~> Filtrer1\nVirtualMachines aggregate(groupBy(Domain),\n\t{vm par domain} = count(),\n\tpartitionBy('hash', 1)) ~> countbydomain\nLUNs1clean derive({storage percent} = LUNUsedGB/LUNCapacityGB) ~> percentofstorage\nStorageSystems filter(TotalRawCapacityTB>100) ~> StorsysRawCapacity\nVirtualVolumes filter(LUNMonitored==1024) ~> VirtualVolumeslunMonitored\npercentofstorage sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinput(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tfilePattern:'LUNs',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tsaveOrder: 1,\n\tmapColumn(\n\t\tArray,\n\t\tLUN,\n\t\tLUNType,\n\t\tServiceLevel,\n\t\tLUNCapacityGB,\n\t\tLUNUsedGB,\n\t\tPurpose,\n\t\tPool,\n\t\tPoolType,\n\t\tPolicyName,\n\t\tStorageGroup,\n\t\tIsUsed\n\t)) ~> OUTPUT\ntransformationno1 sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinput(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tfilePattern:'HypervisorCluster',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> outputHyperCluster\nHypervisor sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinput(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tfilePattern:'Hypervisor',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> outputHyper\nStorageSystems sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinput(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tfilePattern:'StorageSystems',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> outputStorageSystems\nVirtualMachines sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinput(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tfilePattern:'VirtualMachines',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> outputVirtualMachines\nVirtualVolumeslunMonitored sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinput(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tfilePattern:'VirtualVolumes',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> outputVirtualVolumes\nFiltrer1 sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinput(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tfilePattern:'HyperFiltré',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> outputHyperFiltrer\ncountbydomain sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinput(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tfilePattern:'VirtualMachineCountBydomain') ~> outputVirtualMachineCount\nStorsysRawCapacity sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinput(\n\t\tHypervisor as string,\n\t\tIP as string,\n\t\tArrays as string,\n\t\tOperatingSystem as string,\n\t\tDomain as string,\n\t\tMemory as string,\n\t\tNoCPU as string,\n\t\tAvailability as string,\n\t\tLastCollectionTime as string\n\t),\n\tfilePattern:'StorageSystemRawCapFiltré',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> StorageSysRawCapacity100"
+		}
+	}
+}

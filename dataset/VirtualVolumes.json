@@ -1,0 +1,85 @@
+{
+	"name": "VirtualVolumes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "inputblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "VirtualVolumes.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SerialNumber",
+				"type": "String"
+			},
+			{
+				"name": "VirtualVolume",
+				"type": "String"
+			},
+			{
+				"name": "RAIDType",
+				"type": "String"
+			},
+			{
+				"name": "Locality",
+				"type": "String"
+			},
+			{
+				"name": "Capacity",
+				"type": "String"
+			},
+			{
+				"name": "UsableCapacity",
+				"type": "String"
+			},
+			{
+				"name": "UsedCapacity",
+				"type": "String"
+			},
+			{
+				"name": "IsUsed",
+				"type": "String"
+			},
+			{
+				"name": "IsThinlyProvisioned",
+				"type": "String"
+			},
+			{
+				"name": "Virtual Pool",
+				"type": "String"
+			},
+			{
+				"name": "Connected To",
+				"type": "String"
+			},
+			{
+				"name": "Array",
+				"type": "String"
+			},
+			{
+				"name": "LUN",
+				"type": "String"
+			},
+			{
+				"name": "LUNServiceLevel",
+				"type": "String"
+			},
+			{
+				"name": "LUNMonitored",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
