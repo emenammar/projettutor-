@@ -1,0 +1,13 @@
+{
+	"name": "AzureDatabricks1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-4950603994088185.5.azuredatabricks.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/f2c65478-31b0-4387-9831-81360658ac28/resourceGroups/tutore/providers/Microsoft.Databricks/workspaces/datafactorytutore",
+			"existingClusterId": "tutorecluster"
+		}
+	}
+}
