@@ -1,0 +1,13 @@
+{
+	"name": "AzureMLService1",
+	"properties": {
+		"annotations": [],
+		"type": "AzureMLService",
+		"typeProperties": {
+			"subscriptionId": "f2c65478-31b0-4387-9831-81360658ac28",
+			"resourceGroupName": "tutore",
+			"mlWorkspaceName": "tutoreprojet",
+			"authentication": "MSI"
+		}
+	}
+}
