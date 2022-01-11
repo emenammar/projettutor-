@@ -1,0 +1,364 @@
+{
+	"name": "Storage_Sys_SMART",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "inputblob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Storage_Systems_SMART.csv",
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "serial_number",
+				"type": "String"
+			},
+			{
+				"name": "model",
+				"type": "String"
+			},
+			{
+				"name": "capacity_bytes",
+				"type": "String"
+			},
+			{
+				"name": "failure",
+				"type": "String"
+			},
+			{
+				"name": "smart_1_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_1_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_2_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_2_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_3_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_3_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_4_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_4_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_5_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_5_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_7_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_7_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_8_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_8_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_9_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_9_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_10_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_10_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_11_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_11_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_12_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_12_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_13_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_13_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_15_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_15_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_183_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_183_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_184_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_184_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_187_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_187_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_188_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_188_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_189_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_189_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_190_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_190_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_191_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_191_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_192_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_192_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_193_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_193_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_194_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_194_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_195_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_195_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_196_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_196_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_197_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_197_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_198_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_198_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_199_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_199_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_200_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_200_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_201_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_201_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_223_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_223_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_225_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_225_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_240_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_240_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_241_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_241_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_242_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_242_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_250_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_250_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_251_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_251_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_252_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_252_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_254_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_254_raw",
+				"type": "String"
+			},
+			{
+				"name": "smart_255_normalized",
+				"type": "String"
+			},
+			{
+				"name": "smart_255_raw",
+				"type": "String"
+			}
+		]
+	}
+}
